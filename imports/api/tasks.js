@@ -30,7 +30,7 @@ Meteor.methods({
       })
     },
 
-    'tasks.remove'(taskId) {
+    'tasks.remove'(taskId) { 
         check(taskId, String);
 
         const task = Tasks.findOne(taskId);
