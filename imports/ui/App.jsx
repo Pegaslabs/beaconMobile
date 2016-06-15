@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
+import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import Task from './Task.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
@@ -37,7 +38,7 @@ class App extends Component {
           const currentUserId = this.props.currentUser && this.props.currentUser._id;
           const showPrivateButton = task.owner === currentUserId;
 
-         <Task key={task._id} task={task} showPrivateButton={showPrivateButton} />
+         return (<Task key={task._id} task={task} showPrivateButton={showPrivateButton} />);
        });
   }
 
@@ -45,7 +46,7 @@ class App extends Component {
     return (
         <div className="container">
             <header>
-                <h1>Todo List {this.props.incompleteCount}</h1>
+                <h1>Todo List ({this.props.incompleteCount})</h1>
 
                 <label className="hide-completed">
                     <input
@@ -66,6 +67,8 @@ class App extends Component {
                 }
 
             </header>
+
+            <img height="300px" width="300px" src="http://benyouhuifile.it168.com/forum/macos/attachments/month_1001/20100106_b2779e87584d48c475d8k0Zfc5o46NG6.jpg" />
 
             <ul>
                 {this.renderTasks()}
