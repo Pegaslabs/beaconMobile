@@ -21,9 +21,8 @@ Meteor.startup(() => {
         ibeacon.showMessage("It works!!!");
         document.addEventListener("deviceready", onDeviceReady, false);
         shake.startWatch(onShake, 30);
+        ibeacon.showBeacon("herere");
     }
-
-    //process.env.MONGO_URL = 'mongodb://databoy:databoy@ds011314.mlab.com:11314/beaconbarn';
 
     render(<App />, document.getElementById('render-target'));
 });
