@@ -12,6 +12,7 @@ function onDeviceReady() {
 
 function onShake() {
     ibeacon.showMessage("shaked");
+    ibeacon.showBeacon("herere");
 }
 
 
@@ -21,7 +22,6 @@ Meteor.startup(() => {
         ibeacon.showMessage("It works!!!");
         document.addEventListener("deviceready", onDeviceReady, false);
         shake.startWatch(onShake, 30);
-        ibeacon.showBeacon("herere");
     }
 
     render(<App />, document.getElementById('render-target'));
