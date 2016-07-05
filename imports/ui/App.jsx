@@ -4,13 +4,16 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import Task from './Task.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
-import { Tasks } from '../api/tasks.js'
+import { Tasks } from '../api/tasks.js';
+import { Url } from '../api/currentTime.js';
+
 
 class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        hideCompleted: false
+        hideCompleted: false,
+        url: 'http://o9e688083.bkt.clouddn.com/',
       };
   }
 
@@ -41,8 +44,11 @@ class App extends Component {
          return (<Task key={task._id} task={task} showPrivateButton={showPrivateButton} />);
        });
   }
+    
 
   render() {
+
+
     return (
         <div className="container">
             <header>
@@ -68,7 +74,9 @@ class App extends Component {
 
             </header>
 
-            <img height="300px" width="300px" src="http://benyouhuifile.it168.com/forum/macos/attachments/month_1001/20100106_b2779e87584d48c475d8k0Zfc5o46NG6.jpg" />
+            <p>{this.state.url+this.props.time.url}</p>
+            
+            <img height="300px" width="300px" src={this.state.url+this.props.time.url} />
 
             <ul>
                 {this.renderTasks()}
@@ -81,16 +89,19 @@ class App extends Component {
 App.propTypes = {
   tasks: PropTypes.array.isRequired,
   incompleteCount: PropTypes.number.isRequired,
-  currentUser: PropTypes.object
+  currentUser: PropTypes.object,
+  time: PropTypes.object,
 };
 
 export default createContainer(() => {
 
     Meteor.subscribe('tasks');
+    Meteor.subscribe('url');
 
     return {
         tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
         incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-        currentUser: Meteor.user()
+        currentUser: Meteor.user(),
+        time: Url.findOne({id:'addr'}),
     };
 }, App);
