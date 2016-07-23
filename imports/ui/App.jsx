@@ -63,8 +63,7 @@ class App extends Component {
                     />
                     Hide Completed Tasks
                 </label>
-
-                <AccountsUIWrapper />
+                
 
                 { this.props.currentUser ?
                     <form className="new-task" onSubmit={this.handleSubmit.bind(this)}>
@@ -75,7 +74,7 @@ class App extends Component {
             </header>
 
             <p>{this.state.url+this.props.time.url}</p>
-            
+
             <img height="300px" width="300px" src={this.state.url+this.props.time.url} />
 
             <ul>

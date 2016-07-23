@@ -7,6 +7,8 @@ import App from '../imports/ui/App.jsx';
 import shake from '../imports/api/shake.js';
 import { Url } from '../imports/api/currentTime.js';
 
+import { renderRoutes } from '../imports/startup/routes.js';
+
 
 function onDeviceReady() {
     console.log(navigator.accelerometer);
@@ -42,5 +44,6 @@ Meteor.startup(() => {
 
     Meteor.call('url.insert', 'test1.jpg');
     
-    render(<App />, document.getElementById('render-target'));
+   // render(<App />, document.getElementById('render-target'));
+    render(renderRoutes(), document.getElementById('render-target'));
 });
