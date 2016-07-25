@@ -51,12 +51,9 @@ class Login extends Component {
                     console.log('username: '+ obj.username);
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
+                    self.context.router.push('/main');
                 }
             });
-
-            if(this.props.currentUser.username) {
-                this.context.router.push('/main');
-            }
 
         } else {
             if(!username) this.setState({ usernameHint: hint });

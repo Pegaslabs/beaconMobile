@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="62265d44-8f2e-440c-b846-1919a3227e69" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/Login.jsx" afterPath="$PROJECT_DIR$/imports/ui/Login.jsx" />
     </list>
     <ignored path="beaconMobile.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -95,8 +96,8 @@
       <file leaf-file-name="Login.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/imports/ui/Login.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="51" column="14" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+            <state relative-caret-position="140">
+              <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
               </folding>
@@ -783,12 +784,12 @@
       <workItem from="1469374891825" duration="35206000" />
       <workItem from="1469426792092" duration="671000" />
       <workItem from="1469460129432" duration="606000" />
-      <workItem from="1469469161406" duration="15194000" />
+      <workItem from="1469469161406" duration="15308000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="228469000" />
+    <option name="totallyTimeSpent" value="228583000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -1158,8 +1159,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/Login.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="51" column="14" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
+        <state relative-caret-position="140">
+          <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
