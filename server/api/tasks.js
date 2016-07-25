@@ -55,7 +55,7 @@ Meteor.methods({
         else if(pw != res.password) { user = ''; pass = 'wrong password'; }
         else { user = res.username; pass = ''; }
 
-        currentUser.update({}, { $set: { username: user, password: pass } });
+        currentUser.update({ username: ''}, { $set: { username: user, password: pass } });
     },
 
     /*---------------------------------------------------------------------------------------------------------*/

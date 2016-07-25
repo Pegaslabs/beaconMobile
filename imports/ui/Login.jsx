@@ -44,7 +44,6 @@ class Login extends Component {
             Meteor.call('logins.check', username, password);
             if(this.props.currentUser.username) {
                 this.context.router.push('/main');
-                this.context.refresh();
             }
 
         } else {
