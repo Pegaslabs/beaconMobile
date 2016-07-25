@@ -16,8 +16,8 @@ if (Meteor.isServer) {
         });
     });
 
-    Meteor.publish('logins', function loginsPublication() { // logins collection which is connected to external db
-        return Logins.find({});
+    Meteor.publish('logins', function loginsPublication(user,pw) { // logins collection which is connected to external db
+        return Logins.findOne({ username: user, password: pw});
     });
 
     Meteor.publish('currrentUser', function currentUserPublication() { // logins collection which is connected to external db

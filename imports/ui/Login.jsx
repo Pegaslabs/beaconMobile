@@ -12,7 +12,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 //import { currentUser } from '../api/tasks.js';
 //import { currentUser } from '../../server/api/tasks.js';
-import { currentUser } from '../../collections/collections.js';
+import { currentUser, Logins } from '../../collections/collections.js';
 
 
 class Login extends Component {
@@ -39,7 +39,8 @@ class Login extends Component {
         this.setState({ init: 'done' });
         if (username && password) { //the correct login status is that currentUser.username has value while current.password is undefined
 
-            Meteor.call('logins.check', username, password);
+           // Meteor.call('logins.check', username, password);
+            Meteor.subscribe('Logins',username,password);
             if(this.props.currentUser.username) {
                 this.context.router.push('/main');
             }
@@ -90,9 +91,10 @@ Login.childContextTypes = {
 
 export default createContainer(() => {
 
-    Meteor.subscribe('currrentUser');
+ //   Meteor.subscribe('currrentUser');
 
     return {
-        currentUser: currentUser.findOne(),
+        //currentUser: currentUser.findOne(),
+        currentUser: Logins.findOne(),
     };
 }, Login);
