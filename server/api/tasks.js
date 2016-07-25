@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
-import { Tasks, Logins, currentUser } from '../../collections/collection.js';
+import { Tasks, Logins, currentUser } from '../../collections/collections.js';
 
 //let database;
 
