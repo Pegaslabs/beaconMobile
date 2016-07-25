@@ -22,7 +22,8 @@ class Login extends Component {
         this.state = {
             usernameHint: null,
             passwordHint: null,
-            init: null
+            init: null,
+            username: null
         };
         
     }
@@ -39,8 +40,17 @@ class Login extends Component {
         this.setState({ init: 'done' });
         if (username && password) { //the correct login status is that currentUser.username has value while current.password is undefined
 
+            let self = this;
            // Meteor.call('logins.check', username, password);
-            Meteor.subscribe('Logins',username,password);
+            Meteor.subscribe('Logins',username,password, function onReady() {
+
+                let obj = Logins.findOne();
+                if(obj) {
+                    self.setState({ username: obj.username });
+                    self.setState({ password: obj.password });
+                }
+            });
+
             if(this.props.currentUser.username) {
                 this.context.router.push('/main');
             }
@@ -59,7 +69,7 @@ class Login extends Component {
             <div>
                 <div className="loginbar">
                     {
-                        (!this.props.currentUser.password) ? null : ((!this.state.init) ? null : <p>No match found</p>)
+                        (!this.state.password) ? null : ((!this.state.init) ? null : <p>No match found</p>)
                     }
                     <TextField floatingLabelText="username" ref="username" errorText={this.state.usernameHint} />
                 </div> <br/>
@@ -67,8 +77,8 @@ class Login extends Component {
                     <TextField floatingLabelText="password" ref="password" errorText={this.state.passwordHint} type="password" />
                 </div> <br/>
                 <div className="LoginButton"><RaisedButton label="Login" primary={true} onClick={this.login} /></div>
-                <p>username:{this.props.currentUser.username}</p>
-                <p>password:{this.props.currentUser.password}</p>
+                <p>username:{this.state.username}</p>
+                <p>password:{this.state.password}</p>
             </div>
            
         );
@@ -98,3 +108,11 @@ export default createContainer(() => {
         currentUser: Logins.findOne(),
     };
 }, Login);
+
+/*
+{
+    (!this.props.currentUser.password) ? null : ((!this.state.init) ? null : <p>No match found</p>)
+}
+<p>username:{this.props.currentUser.username}</p>
+<p>password:{this.props.currentUser.password}</p>
+    */
