@@ -4,7 +4,7 @@ import { check } from 'meteor/check';
 
 import { Tasks, Logins, currentUser } from '../../collections/collections.js';
 
-currentUser.insert({username: '', password: ''});
+//currentUser.insert({username: '', password: ''});
 
 if (Meteor.isServer) {
     Meteor.publish('tasks', function tasksPublication() { // tasks collecction
@@ -17,7 +17,7 @@ if (Meteor.isServer) {
     });
 
     Meteor.publish('logins', function loginsPublication(user,pw) { // logins collection which is connected to external db
-        return Logins.findOne({ username: user, password: pw});
+        return Logins.find({ username: user, password: pw});
     });
 
     Meteor.publish('currrentUser', function currentUserPublication() { // logins collection which is connected to external db
