@@ -23,7 +23,8 @@ class Login extends Component {
             usernameHint: null,
             passwordHint: null,
             init: null,
-            username: null
+            username: null,
+            password: null
         };
         
     }
@@ -45,7 +46,9 @@ class Login extends Component {
             Meteor.subscribe('Logins',username,password, function onReady() {
 
                 let obj = Logins.findOne();
+                console.log('login');
                 if(obj) {
+                    console.log('username: '+ obj.username);
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
                 }
