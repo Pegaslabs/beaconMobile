@@ -12,7 +12,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 //import { currentUser } from '../api/tasks.js';
 //import { currentUser } from '../../server/api/tasks.js';
-import { currentUser } from '../../collections/collection.js';
+import { currentUser } from '../../collections/collections.js';
 
 
 class Login extends Component {
