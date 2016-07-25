@@ -32,8 +32,6 @@ class Login extends Component {
     }
 
     login()  {
-
-    //    this.context.router.push('/main');
         
         let username = this.refs.username.getValue();
         let password = this.refs.password.getValue();

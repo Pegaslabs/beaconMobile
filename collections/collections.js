@@ -6,4 +6,4 @@ export const Tasks = new Mongo.Collection('tasks');
 export const Logins = new Mongo.Collection('logins');
 export const currentUser = new Mongo.Collection('currentUser');
 
-currentUser.insert({username: '', password: ''});
+
