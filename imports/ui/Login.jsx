@@ -43,7 +43,7 @@ class Login extends Component {
 
             let self = this;
            // Meteor.call('logins.check', username, password);
-            Meteor.subscribe('Logins',username,password, function onReady() {
+            Meteor.subscribe('logins',username,password, function onReady() {
 
                 let obj = Logins.findOne();
                 console.log('login');
