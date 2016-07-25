@@ -16,8 +16,6 @@ import { Tasks, Logins, currentUser } from '../../collections/collections.js';
 export const Logins = new Mongo.Collection('logins');
 export const currentUser = new Mongo.Collection('currentUser'); */
 
-currentUser.insert({username: '', password: ''}); // insert init username
-
 if (Meteor.isServer) {
     Meteor.publish('tasks', function tasksPublication() { // tasks collecction
         return Tasks.find({
