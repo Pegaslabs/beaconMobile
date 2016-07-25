@@ -9,8 +9,8 @@ import { Url } from '../api/currentTime.js';
 
 
 class App extends Component {
-  constructor(props) {
-      super(props);
+  constructor(props,context) {
+      super(props,context);
       this.state = {
         hideCompleted: false,
         url: 'http://o9e688083.bkt.clouddn.com/',
@@ -63,7 +63,6 @@ class App extends Component {
                     />
                     Hide Completed Tasks
                 </label>
-                
 
                 { this.props.currentUser ?
                     <form className="new-task" onSubmit={this.handleSubmit.bind(this)}>
@@ -76,7 +75,7 @@ class App extends Component {
             <p>{this.state.url+this.props.time.url}</p>
 
             <img height="300px" width="300px" src={this.state.url+this.props.time.url} />
-
+            
             <ul>
                 {this.renderTasks()}
             </ul>
