@@ -4,8 +4,8 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import Task from './Task.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
-//import { Tasks } from '../api/tasks.js';
-import { Tasks } from '../../server/api/tasks.js';
+import { Tasks } from '../api/tasks.js';
+//import { Tasks } from '../../server/api/tasks.js';
 import { Url } from '../api/currentTime.js';
 
 
