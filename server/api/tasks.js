@@ -40,36 +40,36 @@ if (Meteor.isServer) {
 Meteor.methods({
 
     'logins.check'(username, password) {
-        
+
         let pw = password;
         let res = Logins.findOne({ username: username });
         let obj = Logins.find({}).count();
-        
+
         console.log('collection:' + obj);
 
         console.log('enter:'+username);
-        let user; 
+        let user;
         let pass;
         if(!res) { user = ''; pass = 'no such user'; console.log('nullres'); }
         else if(pw != res.password) { user = ''; pass = 'wrong password'; }
         else { user = res.username; pass = ''; }
-        
+
         currentUser.update({}, { $set: { username: user, password: pass } });
     },
 
-/*---------------------------------------------------------------------------------------------------------*/
+    /*---------------------------------------------------------------------------------------------------------*/
 
     'tasks.insert'(text) {
-      check(text, String);
-      if(!Meteor.userId()) {
-          throw new Meteor.Error('not-authorized');
-      }
-      Tasks.insert({
-          text,
-          createdAt: new Date(),
-          owner: Meteor.userId(),
-          username: Meteor.users.findOne(this.userId).username
-      })
+        check(text, String);
+        if(!Meteor.userId()) {
+            throw new Meteor.Error('not-authorized');
+        }
+        Tasks.insert({
+            text,
+            createdAt: new Date(),
+            owner: Meteor.userId(),
+            username: Meteor.users.findOne(this.userId).username
+        })
     },
 
     'tasks.remove'(taskId) {
