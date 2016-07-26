@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -22,7 +23,6 @@ class Login extends Component {
             username: null,
             password: null
         };
-        
     }
 
     getChildContext() {
@@ -45,7 +45,10 @@ class Login extends Component {
                     console.log('username: '+ obj.username);
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
-                    self.context.router.push('/main');
+              //      self.props.history.push('/main');
+              //      self.context.router.push('/main');
+                    browserHistory.push('/main');
+
                 } else {
                     self.setState({ password: 'no match found' });
                 }
@@ -65,7 +68,7 @@ class Login extends Component {
             <div>
                 <div className="loginbar">
                     {
-                        (!this.state.password) ? null : <p>No match found</p>
+                        (!this.state.username) ? null : <p>No match found</p>
                     }
                     <TextField floatingLabelText="username" ref="username" errorText={this.state.usernameHint} />
                 </div> <br/>
