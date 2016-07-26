@@ -29,6 +29,10 @@ class Login extends Component {
         return { muiTheme: getMuiTheme(baseTheme) };
     }
 
+    static contextTypes = {
+        router: PropTypes.object
+    }
+
     login()  {
         
         let username = this.refs.username.getValue();
