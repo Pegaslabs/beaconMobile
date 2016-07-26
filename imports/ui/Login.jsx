@@ -42,7 +42,8 @@ class Login extends Component {
                 if(obj) {
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
-                    document.location.replace('https://quiet-anchorage-27001.herokuapp.com/main');
+                    window.location.pathname = '/main';
+             //      document.location.replace('https://quiet-anchorage-27001.herokuapp.com/main');
                 } else {
                     self.setState({ password: 'no match found' });
                 }
