@@ -4,49 +4,14 @@ import { check } from 'meteor/check';
 
 import { Tasks, Logins, currentUser } from '../../collections/collections.js';
 
-//currentUser.insert({username: '', password: ''});
-
 if (Meteor.isServer) {
-    Meteor.publish('tasks', function tasksPublication() { // tasks collecction
-        return Tasks.find({
-            $or: [
-                { private: { $ne: true } },
-                { owner: this.userId }
-            ]
-        });
-    });
 
     Meteor.publish('logins', function loginsPublication(user,pw) { // logins collection which is connected to external db
         return Logins.find({ username: user, password: pw});
     });
-
-    Meteor.publish('currrentUser', function currentUserPublication() { // logins collection which is connected to external db
-        return currentUser.find({});
-    });
 }
 
-
 Meteor.methods({
-
-    'logins.check'(username, password) {
-
-        let pw = password;
-        let res = Logins.findOne({ username: username });
-        let obj = Logins.find({}).count();
-
-        console.log('collection:' + obj);
-
-        console.log('enter:'+username);
-        let user;
-        let pass;
-        if(!res) { user = ''; pass = 'no such user'; console.log('nullres'); }
-        else if(pw != res.password) { user = ''; pass = 'wrong password'; }
-        else { user = res.username; pass = ''; }
-
-        currentUser.update({ username: ''}, { $set: { username: user, password: pass } });
-    },
-
-    /*---------------------------------------------------------------------------------------------------------*/
 
     'tasks.insert'(text) {
         check(text, String);
@@ -98,3 +63,19 @@ Meteor.methods({
     }
 
 });
+
+/* 'logins.check'(username, password) {
+
+ let pw = password;
+ let res = Logins.findOne({ username: username });
+ let obj = Logins.find({}).count();
+
+ console.log('collection:' + obj);
+
+ console.log('enter:'+username);
+ let user;
+ let pass;
+ if(!res) { user = ''; pass = 'no such user'; console.log('nullres'); }
+ else if(pw != res.password) { user = ''; pass = 'wrong password'; }
+ else { user = res.username; pass = ''; }
+ },*/

@@ -19,7 +19,6 @@ class Login extends Component {
         this.state = {
             usernameHint: null,
             passwordHint: null,
-            init: null,
             username: null,
             password: null
         };
@@ -35,11 +34,9 @@ class Login extends Component {
         let username = this.refs.username.getValue();
         let password = this.refs.password.getValue();
         const hint = "This field is required";
-        this.setState({ init: 'done' });
         if (username && password) { //the correct login status is that currentUser.username has value while current.password is undefined
 
             let self = this;
-           // Meteor.call('logins.check', username, password);
             Meteor.subscribe('logins',username,password, function onReady() {
 
                 let obj = Logins.findOne();
@@ -87,7 +84,6 @@ class Login extends Component {
 injectTapEventPlugin();
 
 Login.propTypes = {
-    currentUser: PropTypes.object,
 };
 
 Login.contextTypes = {
@@ -101,6 +97,5 @@ Login.childContextTypes = {
 export default createContainer(() => {
     
     return {
-        currentUser: Logins.findOne(),
     };
 }, Login);
