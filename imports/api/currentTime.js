@@ -3,11 +3,11 @@ import { Mongo } from 'meteor/mongo';
 
 export const Url = new Mongo.Collection('url');
 
-/*if (Meteor.isClient) {
+if (Meteor.isCordova) {
     Meteor.publish('url', function urlPublication() {
         return Url.find({});
     });
-}*/
+}
 
 Meteor.methods({
     'url.insert'(name) {

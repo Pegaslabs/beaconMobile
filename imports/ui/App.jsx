@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import Task from './Task.jsx';
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
-//import { Tasks } from '../api/tasks.js';
-//import { Tasks } from '../../server/api/tasks.js';
 import { Tasks } from '../../collections/collections.js';
 import { Url } from '../api/currentTime.js';
 
@@ -96,7 +93,7 @@ App.propTypes = {
 export default createContainer(() => {
 
     Meteor.subscribe('tasks');
-  //  Meteor.subscribe('url');
+    Meteor.subscribe('url');
 
     return {
         tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
