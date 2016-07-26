@@ -69,7 +69,7 @@ class Login extends Component {
             <div>
                 <div className="loginbar">
                     {
-                        (!this.state.password) ? null : ((!this.state.init) ? null : <p>No match found</p>)
+                        (!this.state.password) ? null :  <p>No match found</p>
                     }
                     <TextField floatingLabelText="username" ref="username" errorText={this.state.usernameHint} />
                 </div> <br/>
