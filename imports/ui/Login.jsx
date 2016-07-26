@@ -50,13 +50,11 @@ class Login extends Component {
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
               //      self.props.history.push('/main');
-                    self.props.history.pushState(null, '/main');
+                    Window.location.reload(true);
+              //      self.props.history.pushState(null, '/main');
               //      self.context.router.push('/main');
                //     browserHistory.push('/main');
                //     window.location.reload(true);
-                    console.log(location);
-                    location.reload(true);
-                    
 
                 } else {
                     self.setState({ password: 'no match found' });
