@@ -29,9 +29,9 @@ class Login extends Component {
         return { muiTheme: getMuiTheme(baseTheme) };
     }
 
-    static contextTypes = {
+  /*  static contextTypes = {
         router: PropTypes.object
-    }
+    }*/
 
     login()  {
         
@@ -50,8 +50,9 @@ class Login extends Component {
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
               //      self.props.history.push('/main');
-                    self.context.router.push('/main');
-                    browserHistory.push('/main');
+                    self.props.history.pushState(null, '/main');
+              //      self.context.router.push('/main');
+              //      browserHistory.push('/main');
 
                 } else {
                     self.setState({ password: 'no match found' });
@@ -91,10 +92,6 @@ class Login extends Component {
 injectTapEventPlugin();
 
 Login.propTypes = {
-};
-
-Login.contextTypes = {
-    router: PropTypes.object
 };
 
 Login.childContextTypes = {
