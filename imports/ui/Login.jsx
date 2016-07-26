@@ -10,7 +10,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import { currentUser, Logins } from '../../collections/collections.js';
+import { Logins } from '../../collections/collections.js';
 
 
 class Login extends Component {
@@ -50,9 +50,10 @@ class Login extends Component {
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
               //      self.props.history.push('/main');
-                    self.props.history.pushState(null, '/main');
+              //      self.props.history.pushState(null, '/main');
               //      self.context.router.push('/main');
-              //      browserHistory.push('/main');
+                    browserHistory.push('/main');
+                    window.location.reload(true);
 
                 } else {
                     self.setState({ password: 'no match found' });
@@ -92,6 +93,7 @@ class Login extends Component {
 injectTapEventPlugin();
 
 Login.propTypes = {
+    currentuser: PropTypes.object.isRequired
 };
 
 Login.childContextTypes = {
@@ -101,5 +103,6 @@ Login.childContextTypes = {
 export default createContainer(() => {
     
     return {
+        currentUser: Logins.findOne()
     };
 }, Login);
