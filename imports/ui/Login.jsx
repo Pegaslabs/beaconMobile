@@ -54,6 +54,9 @@ class Login extends Component {
               //      self.context.router.push('/main');
                //     browserHistory.push('/main');
                //     window.location.reload(true);
+                    console.log(location);
+                    location.reload(true);
+                    
 
                 } else {
                     self.setState({ password: 'no match found' });
