@@ -53,7 +53,7 @@ class Login extends Component {
                     self.setState({ password: obj.password });
               //      self.props.history.push('/main');
                     window.location.replace('https://quiet-anchorage-27001.herokuapp.com/main');
-                    window.location.reload(true);
+                 //   window.location.reload(true);
               //      self.props.history.pushState(null, '/main');
               //      self.context.router.push('/main');
                //     browserHistory.push('/main');
