@@ -11,11 +11,6 @@ if (Meteor.isServer) {
 
 export const Tasks = new Mongo.Collection('tasks', { _driver: database });
 export const Logins = new Mongo.Collection('logins', { _driver: database });
-//export const Tasks = new Mongo.Collection('tasks');
-//export const Logins = new Mongo.Collection('logins');
-export const currentUser = new Mongo.Collection('currentUser');
-
-currentUser.insert({username: '', password: ''}); // insert init username
 
 if (Meteor.isServer) {
     Meteor.publish('tasks', function tasksPublication() { // tasks collecction
@@ -26,38 +21,11 @@ if (Meteor.isServer) {
             ]
         });
     });
-
-    Meteor.publish('logins', function loginsPublication() { // logins collection which is connected to external db
-        return Logins.find({});
-    });
-
-    Meteor.publish('currrentUser', function currentUserPublication() { // logins collection which is connected to external db
-        return currentUser.find({});
-    });
+    
 }
 
 
 Meteor.methods({
-
-    'logins.check'(username, password) {
-        
-        let pw = password;
-        let res = Logins.findOne({ username: username });
-        let obj = Logins.find({}).count();
-        
-        console.log('collection:' + obj);
-
-        console.log('enter:'+username);
-        let user; 
-        let pass;
-        if(!res) { user = ''; pass = 'no such user'; console.log('nullres'); }
-        else if(pw != res.password) { user = ''; pass = 'wrong password'; }
-        else { user = res.username; pass = ''; }
-        
-        currentUser.update({}, { $set: { username: user, password: pass } });
-    },
-
-/*---------------------------------------------------------------------------------------------------------*/
 
     'tasks.insert'(text) {
       check(text, String);
