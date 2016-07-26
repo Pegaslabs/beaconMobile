@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="62265d44-8f2e-440c-b846-1919a3227e69" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imports/ui/Login.jsx" afterPath="$PROJECT_DIR$/imports/ui/Login.jsx" />
     </list>
     <ignored path="beaconMobile.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -828,12 +827,12 @@
       <workItem from="1469374891825" duration="35206000" />
       <workItem from="1469426792092" duration="671000" />
       <workItem from="1469460129432" duration="606000" />
-      <workItem from="1469469161406" duration="26846000" />
+      <workItem from="1469469161406" duration="27676000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240121000" />
+    <option name="totallyTimeSpent" value="240951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
