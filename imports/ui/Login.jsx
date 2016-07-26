@@ -11,7 +11,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import { Logins } from '../../collections/collections.js';
 
-
 class Login extends Component {
     constructor(props,context) {
         super(props,context);
@@ -29,7 +28,6 @@ class Login extends Component {
     }
 
     login()  {
-        
         let username = this.refs.username.getValue();
         let password = this.refs.password.getValue();
         const hint = "This field is required";
@@ -43,7 +41,6 @@ class Login extends Component {
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
                     window.location.pathname = '/main';
-             //      document.location.replace('https://quiet-anchorage-27001.herokuapp.com/main');
                 } else {
                     self.setState({ password: 'no match found' });
                 }
@@ -55,7 +52,6 @@ class Login extends Component {
     }
 
     render() {
-        
         return (
             <div>
                 <div className="loginbar">
@@ -88,6 +84,5 @@ Login.childContextTypes = {
 export default createContainer(() => {
     
     return {
-        
     };
 }, Login);
