@@ -11,7 +11,8 @@ if (Meteor.isServer) {
     });
 }
 
-Meteor.methods({
+
+Meteor.methods({ 
 
     'tasks.insert'(text) {
         check(text, String);
