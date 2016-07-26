@@ -45,13 +45,14 @@ class Login extends Component {
 
                 let obj = Logins.findOne();
                 console.log('login');
+                console.log('Window:'+Window.location);
+                console.log('window:'+window.location);
                 if(obj) {
                     console.log('username: '+ obj.username);
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
               //      self.props.history.push('/main');
-                    console.log('Window:'+Window.location);
-                    console.log('window:'+window.location);
+                    window.location.replace('https://quiet-anchorage-27001.herokuapp.com/main');
                     window.location.reload(true);
               //      self.props.history.pushState(null, '/main');
               //      self.context.router.push('/main');
