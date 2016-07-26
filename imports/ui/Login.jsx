@@ -47,15 +47,12 @@ class Login extends Component {
                     self.setState({ password: 'no match found' });
                 }
             });
-
         } else {
             if(!username) this.setState({ usernameHint: hint });
             if(!password) this.setState({ passwordHint: hint });
         }
     }
 
-
-    
     render() {
         
         return (
@@ -73,7 +70,6 @@ class Login extends Component {
                 <p>username:{this.state.username}</p>
                 <p>password:{this.state.password}</p>
             </div>
-           
         );
     }
 }
@@ -81,7 +77,7 @@ class Login extends Component {
 injectTapEventPlugin();
 
 Login.propTypes = {
-  //  currentuser: PropTypes.object.isRequired
+    
 };
 
 Login.childContextTypes = {
@@ -91,6 +87,6 @@ Login.childContextTypes = {
 export default createContainer(() => {
     
     return {
-   //     currentUser: Logins.findOne()
+        
     };
 }, Login);
