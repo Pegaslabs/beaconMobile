@@ -46,7 +46,7 @@ class Login extends Component {
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
               //      self.props.history.push('/main');
-              //      self.context.router.push('/main');
+                    self.context.router.push('/main');
                     browserHistory.push('/main');
 
                 } else {
