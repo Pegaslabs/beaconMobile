@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -29,10 +28,6 @@ class Login extends Component {
         return { muiTheme: getMuiTheme(baseTheme) };
     }
 
-  /*  static contextTypes = {
-        router: PropTypes.object
-    }*/
-
     login()  {
         
         let username = this.refs.username.getValue();
@@ -44,21 +39,10 @@ class Login extends Component {
             Meteor.subscribe('logins',username,password, function onReady() {
 
                 let obj = Logins.findOne();
-                console.log('login');
-                console.log('Window:'+Window.location);
-                console.log('window:'+window.location);
                 if(obj) {
-                    console.log('username: '+ obj.username);
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
-              //      self.props.history.push('/main');
                     window.location.replace('https://quiet-anchorage-27001.herokuapp.com/main');
-                 //   window.location.reload(true);
-              //      self.props.history.pushState(null, '/main');
-              //      self.context.router.push('/main');
-               //     browserHistory.push('/main');
-               //     window.location.reload(true);
-
                 } else {
                     self.setState({ password: 'no match found' });
                 }
@@ -97,7 +81,7 @@ class Login extends Component {
 injectTapEventPlugin();
 
 Login.propTypes = {
-    currentuser: PropTypes.object.isRequired
+  //  currentuser: PropTypes.object.isRequired
 };
 
 Login.childContextTypes = {
@@ -107,6 +91,6 @@ Login.childContextTypes = {
 export default createContainer(() => {
     
     return {
-        currentUser: Logins.findOne()
+   //     currentUser: Logins.findOne()
     };
 }, Login);
