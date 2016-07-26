@@ -50,7 +50,9 @@ class Login extends Component {
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
               //      self.props.history.push('/main');
-                    Window.location.reload(true);
+                    console.log('Window:'+Window.location);
+                    console.log('window:'+window.location);
+                    window.location.reload(true);
               //      self.props.history.pushState(null, '/main');
               //      self.context.router.push('/main');
                //     browserHistory.push('/main');
