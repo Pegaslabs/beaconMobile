@@ -73,7 +73,7 @@ class App extends Component {
 
             <p>{this.state.url+this.props.time.url}</p>
 
-            <img height="300px" width="300px" src={this.state.url+this.props.time.url} />
+            <img height="300px" width="300px" src={this.state.url+window.localStorage.store} />
             
             <ul>
                 {this.renderTasks()}
@@ -82,6 +82,8 @@ class App extends Component {
     );
   }
 }
+
+//<img height="300px" width="300px" src={this.state.url+this.props.time.url} />
 
 App.propTypes = {
   tasks: PropTypes.array.isRequired,

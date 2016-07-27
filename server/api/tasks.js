@@ -3,16 +3,11 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
 import { Tasks, Logins, currentUser } from '../../collections/collections.js';
-import { Url } from '../../imports/api/currentTime.js';
 
 if (Meteor.isServer) {
 
     Meteor.publish('logins', function loginsPublication(user,pw) { // logins collection which is connected to external db
         return Logins.find({ username: user, password: pw});
-    });
-
-    Meteor.publish('url', function urlPublication() {
-        return Url.find({});
     });
 }
 

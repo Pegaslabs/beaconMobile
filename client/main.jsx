@@ -44,6 +44,5 @@ Meteor.startup(() => {
 
     Meteor.call('url.insert', 'test1.jpg');
     
-   // render(<App />, document.getElementById('render-target'));
     render(renderRoutes(), document.getElementById('render-target'));
 });
