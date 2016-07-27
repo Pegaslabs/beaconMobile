@@ -41,7 +41,6 @@ class Login extends Component {
                     self.setState({ username: obj.username });
                     self.setState({ password: obj.password });
                     window.location.pathname = '/main';
-                    window.localStorage.store = 'ddd.jpg';
                 } else {
                     self.setState({ password: 'no match found' });
                 }

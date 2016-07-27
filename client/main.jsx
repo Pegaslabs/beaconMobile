@@ -29,6 +29,7 @@ function onShake() {
     else sec = second.toString();
         
     let name = min + sec + '.jpg';
+    window.localStorage.store = name;
     Meteor.call('url.update', name);
     console.log(Url.findOne({id:'addr'}));
 }
