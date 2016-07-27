@@ -3,14 +3,8 @@ import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
 
-let database;
-
-if (Meteor.isServer) {
-    database = new MongoInternals.RemoteCollectionDriver('mongodb://databoy:databoy@ds011314.mlab.com:11314/beaconbarn');
-}
-
-export const Tasks = new Mongo.Collection('tasks', { _driver: database });
-export const Logins = new Mongo.Collection('logins', { _driver: database });
+export const Tasks = new Mongo.Collection('tasks');
+export const Logins = new Mongo.Collection('logins');
 
 if (Meteor.isServer) {
     Meteor.publish('tasks', function tasksPublication() { // tasks collecction
