@@ -46,6 +46,6 @@ Meteor.startup(() => {
 
     Meteor.call('url.insert', 'test1.jpg');
 
-    if (Meteor.isClient) render(renderRoutes(), document.getElementById('render-target'));
-    else if (Meteor.isCordova) render(renderMobileRoutes(), document.getElementById('render-target'));
+    if (Meteor.isCordova) render(renderRoutes(), document.getElementById('render-target'));
+    else if (Meteor.isClient) render(renderMobileRoutes(), document.getElementById('render-target'));
 });
