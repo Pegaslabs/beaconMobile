@@ -93,7 +93,7 @@ App.propTypes = {
 export default createContainer(() => {
 
     Meteor.subscribe('tasks');
- //   Meteor.subscribe('url');
+    Meteor.subscribe('url');
 
     return {
         tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),

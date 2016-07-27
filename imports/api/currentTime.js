@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 
-export const Url = new Meteor.Collection('url');
+export const Url = new Mongo.Collection('url');
 
 /*if (Meteor.isCordova) {
     Meteor.publish('url', function urlPublication() {
