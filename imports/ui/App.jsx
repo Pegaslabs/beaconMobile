@@ -93,12 +93,12 @@ App.propTypes = {
 export default createContainer(() => {
 
     Meteor.subscribe('tasks');
-    Meteor.subscribe('url');
+ //   Meteor.subscribe('url');
 
     return {
         tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
         incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
         currentUser: Meteor.user(),
-        time: Url.findOne({id:'addr'}),
+        time: Url.findOne({id:'addr'})
     };
 }, App);

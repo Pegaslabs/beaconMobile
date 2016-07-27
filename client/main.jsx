@@ -40,7 +40,6 @@ Meteor.startup(() => {
         ibeacon.showMessage("It works!!!");
         document.addEventListener("deviceready", onDeviceReady, false);
         shake.startWatch(onShake, 30);
-     //   Meteor.call('url.insert', 'test1.jpg');
     }
 
     Meteor.call('url.insert', 'test1.jpg');
