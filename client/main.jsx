@@ -3,13 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 
 import '../imports/startup/accounts-config.js';
-import App from '../imports/ui/App.jsx';
 import shake from '../imports/api/shake.js';
-import { Url } from '../imports/api/currentTime.js';
 
 import { renderRoutes } from '../imports/startup/routes.js';
-import { renderMobileRoutes } from '../imports/startup/mobileRoutes.js';
-
 
 function onDeviceReady() {
     console.log(navigator.accelerometer);
@@ -32,9 +28,7 @@ function onShake() {
     let name = min + sec + '.jpg';
     window.localStorage.store = name;
     Meteor.call('url.update', name);
-    console.log(Url.findOne({id:'addr'}));
 }
-
 
 Meteor.startup(() => {
 
@@ -47,5 +41,4 @@ Meteor.startup(() => {
     Meteor.call('url.insert', 'test1.jpg');
 
     render(renderRoutes(), document.getElementById('render-target'));
-    //if (Meteor.isCordova) render(renderMobileRoutes(), document.getElementById('render-target'));
 });

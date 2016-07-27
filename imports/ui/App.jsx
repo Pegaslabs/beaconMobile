@@ -80,7 +80,7 @@ class App extends Component {
 
             <p>{this.state.url + this.props.time.url} </p>
 
-            <img height="300px" width="300px" src={this.state.url+window.localStorage.store} />
+            <img height="300px" width="300px" src={this.state.url + this.props.time.url} />
             
             <ul>
                 {this.renderTasks()}
@@ -89,8 +89,6 @@ class App extends Component {
     );
   }
 }
-
-
 
 App.propTypes = {
   tasks: PropTypes.array.isRequired,
@@ -102,8 +100,6 @@ App.propTypes = {
 export default createContainer(() => {
 
     Meteor.subscribe('tasks');
-   // Meteor.subscribe('url');
-
     return {
         tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
         incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),

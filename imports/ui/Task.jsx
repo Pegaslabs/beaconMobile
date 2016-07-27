@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
-
-
 export default class Task extends Component {
     toggleChecked() {
         // Set the checked property to the opposite of its current value
