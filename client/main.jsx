@@ -39,7 +39,7 @@ function onShake() {
 Meteor.startup(() => {
 
     if (Meteor.isCordova) {
-        ibeacon.showMessage("It works!!!");
+        ibeacon.showMessage("It works!!");
         document.addEventListener("deviceready", onDeviceReady, false);
         shake.startWatch(onShake, 30);
     }
