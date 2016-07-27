@@ -10,7 +10,9 @@ import { Url } from '../api/currentTime.js';
 class App extends Component {
   constructor(props,context) {
       super(props,context);
+      this.changeName = this.changeName.bind(this);
       this.state = {
+        name: 'init',
         hideCompleted: false,
         url: 'http://o9e688083.bkt.clouddn.com/',
       };
@@ -43,7 +45,12 @@ class App extends Component {
          return (<Task key={task._id} task={task} showPrivateButton={showPrivateButton} />);
        });
   }
-    
+
+  changeName() {
+
+      this.setState({ name: window.localStorage.store });
+      return this.state.name;
+  }
 
   render() {
 
@@ -71,7 +78,7 @@ class App extends Component {
 
             </header>
 
-            <p>{this.state.url+window.localStorage.store}</p>
+            <p>{this.state.url + window.localStorage.store} </p>
 
             <img height="300px" width="300px" src={this.state.url+window.localStorage.store} />
             

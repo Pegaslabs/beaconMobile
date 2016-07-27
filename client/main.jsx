@@ -8,6 +8,7 @@ import shake from '../imports/api/shake.js';
 import { Url } from '../imports/api/currentTime.js';
 
 import { renderRoutes } from '../imports/startup/routes.js';
+import { renderMobileRoutes } from '../imports/startup/mobileRoutes.js';
 
 
 function onDeviceReady() {
@@ -44,6 +45,7 @@ Meteor.startup(() => {
     }
 
     Meteor.call('url.insert', 'test1.jpg');
-    
-    render(renderRoutes(), document.getElementById('render-target'));
+
+    if (Meteor.isClient) render(renderRoutes(), document.getElementById('render-target'));
+    else if (Meteor.isCordova) render(renderMobileRoutes(), document.getElementById('render-target'));
 });
