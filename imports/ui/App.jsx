@@ -78,7 +78,7 @@ class App extends Component {
 
             </header>
 
-            <p>{this.state.url + window.localStorage.store} </p>
+            <p>{this.state.url + this.props.time.url} </p>
 
             <img height="300px" width="300px" src={this.state.url+window.localStorage.store} />
             
@@ -102,7 +102,7 @@ App.propTypes = {
 export default createContainer(() => {
 
     Meteor.subscribe('tasks');
-    Meteor.subscribe('url');
+   // Meteor.subscribe('url');
 
     return {
         tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
